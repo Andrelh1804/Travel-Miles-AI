@@ -1,0 +1,5 @@
+- [NestJS decorator version](nestjs-decorator-version.md) — `@Version()` como decorator separado quebra com TS 5; usar `@Controller({ path, version })`.
+- [NestJS port conflict](nestjs-port-conflict.md) — artifacts/api-server ocupa 8080; NestJS usa 8000.
+- [Supabase SSR cookie types](supabase-ssr-cookie-types.md) — `setAll` recebe `{ name, value, options: CookieOptions }[]`; não usar `CookieOptionsWithName`.
+- [DB audit trigger TG_OP](db-audit-trigger.md) — `TG_OP` retorna maiúsculas; enum `audit_action` usa minúsculas; CASE explícito obrigatório.
+- [Next.js auth route groups](nextjs-auth-routes.md) — `(auth)/login` resolve para `/login`, não `/auth/login`; criar em `auth/login/` para URLs corretas.

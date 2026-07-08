@@ -1,4 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
+import type { CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
@@ -12,7 +13,7 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet: { name: string; value: string; options: CookieOptions }[]) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
           supabaseResponse = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) =>
@@ -27,17 +28,24 @@ export async function updateSession(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   // Redirect unauthenticated users trying to access protected routes
-  const isAuthPage = request.nextUrl.pathname.startsWith("/auth");
-  const isPublicRoute = request.nextUrl.pathname === "/" || isAuthPage;
+  const pathname = request.nextUrl.pathname;
+  const isAuthRoute = pathname.startsWith("/auth");
+  const isPublicRoute = pathname === "/" || isAuthRoute;
 
   if (!user && !isPublicRoute) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = "/auth/login";
-    loginUrl.searchParams.set("redirectTo", request.nextUrl.pathname);
+    loginUrl.searchParams.set("redirectTo", pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  if (user && isAuthPage) {
+  // Redirect authenticated users away from auth pages (except callback & signout)
+  if (
+    user &&
+    isAuthRoute &&
+    !pathname.startsWith("/auth/callback") &&
+    !pathname.startsWith("/auth/signout")
+  ) {
     const dashboardUrl = request.nextUrl.clone();
     dashboardUrl.pathname = "/dashboard";
     return NextResponse.redirect(dashboardUrl);

@@ -38,12 +38,24 @@ CREATE TRIGGER trg_on_auth_user_created
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
 -- ─── Trigger: audit log automático ──────────────────────────────────────────
+-- Nota: TG_OP retorna 'INSERT'/'UPDATE'/'DELETE' (maiúsculas),
+-- mas o enum audit_action usa 'create'/'update'/'delete' (minúsculas).
+-- O CASE faz o mapeamento explícito para evitar falha de cast.
 CREATE OR REPLACE FUNCTION public.log_audit()
-RETURNS TRIGGER LANGUAGE plpgsql SECURITY DEFINER AS $$
+RETURNS TRIGGER LANGUAGE plpgsql SECURITY DEFINER AS $
+DECLARE
+  v_action audit_action;
 BEGIN
+  v_action := CASE TG_OP
+    WHEN 'INSERT' THEN 'create'::audit_action
+    WHEN 'UPDATE' THEN 'update'::audit_action
+    WHEN 'DELETE' THEN 'delete'::audit_action
+    ELSE 'create'::audit_action
+  END;
+
   INSERT INTO public.audit_logs (action, entity_type, entity_id, old_values, new_values)
   VALUES (
-    TG_OP::audit_action,
+    v_action,
     TG_TABLE_NAME,
     COALESCE(NEW.id, OLD.id),
     CASE WHEN TG_OP != 'INSERT' THEN to_jsonb(OLD) ELSE NULL END,
@@ -51,7 +63,7 @@ BEGIN
   );
   RETURN COALESCE(NEW, OLD);
 END;
-$$;
+$;
 
 -- Aplicar auditoria nas tabelas críticas
 CREATE TRIGGER trg_audit_users         AFTER INSERT OR UPDATE OR DELETE ON public.users         FOR EACH ROW EXECUTE FUNCTION public.log_audit();

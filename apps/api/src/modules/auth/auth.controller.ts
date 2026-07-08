@@ -1,4 +1,4 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, Headers, Version } from "@nestjs/common";
+import { Controller, Post, Body, HttpCode, HttpStatus, Headers } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { LoginDto } from "./dto/login.dto";
@@ -8,8 +8,7 @@ import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { User } from "@supabase/supabase-js";
 
 @ApiTags("auth")
-@Controller("auth")
-@Version("1")
+@Controller({ path: "auth", version: "1" })
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

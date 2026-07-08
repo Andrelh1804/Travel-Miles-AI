@@ -6,7 +6,6 @@ import {
   Body,
   HttpCode,
   HttpStatus,
-  Version,
 } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiBearerAuth } from "@nestjs/swagger";
 import { UsersService, UpdateProfileDto } from "./users.service";
@@ -14,8 +13,7 @@ import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { User } from "@supabase/supabase-js";
 
 @ApiTags("users")
-@Controller("users")
-@Version("1")
+@Controller({ path: "users", version: "1" })
 @ApiBearerAuth("supabase-jwt")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
