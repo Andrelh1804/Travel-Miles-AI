@@ -22,7 +22,7 @@ args = "TravelMiles API (NestJS)"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "TravelMiles Web (Next.js)"
+args = "Start application"
 
 [[workflows.workflow]]
 name = "TravelMiles API (NestJS)"
@@ -37,16 +37,16 @@ args = "PORT=8000 pnpm --filter @workspace/api run dev"
 waitForPort = 8000
 
 [[workflows.workflow]]
-name = "TravelMiles Web (Next.js)"
+name = "Start application"
 author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "PORT=5000 pnpm --filter @workspace/web run dev"
 waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
 
 [agent]
 stack = "BEST_EFFORT_FALLBACK"
@@ -64,3 +64,7 @@ channel = "stable-25_05"
 [userenv.shared]
 NEXT_PUBLIC_SUPABASE_URL = "https://kgbvnbytqlbzfkskzdxd.supabase.co"
 NEXT_PUBLIC_SUPABASE_ANON_KEY = "sb_publishable_0ZnJC-_SLG7c0mbjH4q0EA_OWOyrp27"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

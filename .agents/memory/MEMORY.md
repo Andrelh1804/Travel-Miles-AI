@@ -3,3 +3,4 @@
 - [Supabase SSR cookie types](supabase-ssr-cookie-types.md) — `setAll` recebe `{ name, value, options: CookieOptions }[]`; não usar `CookieOptionsWithName`.
 - [DB audit trigger TG_OP](db-audit-trigger.md) — `TG_OP` retorna maiúsculas; enum `audit_action` usa minúsculas; CASE explícito obrigatório.
 - [Next.js auth route groups](nextjs-auth-routes.md) — `(auth)/login` resolve para `/login`, não `/auth/login`; criar em `auth/login/` para URLs corretas.
+- [Replit webview artifact name](replit-webview-artifact.md) — workflow Next.js deve se chamar "Start application" na porta 5000 com outputType webview; qualquer outro nome → proxy retorna "no previewable artifacts".

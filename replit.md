@@ -10,9 +10,9 @@ Plataforma SaaS para pesquisa de passagens aéreas, comparação por milhas, ale
 - Workflow: **TravelMiles API (NestJS)**
 
 ### Next.js Web
-- `pnpm --filter @workspace/web run dev` — frontend Next.js (porta 3000)
+- `PORT=5000 pnpm --filter @workspace/web run dev` — frontend Next.js (porta 5000)
 - `pnpm --filter @workspace/web run build` — build de produção
-- Workflow: **TravelMiles Web (Next.js)**
+- Workflow: **Start application** (porta 5000, outputType webview — obrigatório para o preview do Replit)
 
 ### Workspace
 - `pnpm install` — instalar dependências
@@ -101,4 +101,7 @@ apps/web (Next.js)
 - `SUPABASE_SERVICE_ROLE_KEY` é usada apenas no backend (`SupabaseService.admin`) — nunca no cliente
 - Execute as migrations no Supabase **antes** de iniciar a API em produção
 - `onlyBuiltDependencies` em `pnpm-workspace.yaml` inclui `@nestjs/core` e `sharp`
-- Porta 8080 → API NestJS | Porta 3000 → Next.js web
+- Porta 8000 → API NestJS | Porta 5000 → Next.js web
+- O workflow do Next.js **deve** se chamar "Start application" com `outputType: webview` na porta 5000 — qualquer outro nome faz o proxy Replit retornar "no previewable artifacts"
+- `next.config.ts` tem `allowedDevOrigins: ["*.picard.replit.dev", "*.replit.dev"]` para liberar o iframe do canvas
+- PostCSS usa `@tailwindcss/postcss` (Tailwind v4) — não `tailwindcss` diretamente
