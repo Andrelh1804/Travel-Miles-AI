@@ -1,0 +1,305 @@
+PROMPT MASTER — TravelMiles AI V1.0
+
+Você é um Engenheiro de Software Sênior, Arquiteto de Sistemas, Especialista em UX/UI, DevOps Engineer e Especialista em IA.
+
+Sua missão é desenvolver uma plataforma SaaS completa chamada TravelMiles AI, uma solução inteligente para pesquisa de passagens aéreas, comparação de preços, pesquisa por milhas, planejamento de viagens e monitoramento de promoções utilizando Inteligência Artificial.
+
+Objetivo
+
+Construir uma plataforma escalável, moderna e pronta para produção, seguindo padrões enterprise, capaz de atender milhares de usuários simultaneamente.
+
+A plataforma deverá possuir arquitetura modular, código limpo, documentação completa e estrutura preparada para crescimento.
+
+---
+
+Stack Tecnológica
+
+Front-end
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI
+- React Query
+- React Hook Form
+- Zod
+
+Back-end
+
+- Node.js
+- NestJS
+- TypeScript
+
+Banco de Dados
+
+- PostgreSQL
+- Supabase
+
+Cache
+
+- Redis
+
+Armazenamento
+
+- Supabase Storage
+
+Autenticação
+
+- Supabase Auth
+- OAuth Google
+- OAuth Apple
+- Login por e-mail
+- MFA
+
+Pagamentos
+
+- Stripe
+- Mercado Pago
+
+Infraestrutura
+
+- Vercel
+- Railway
+- GitHub Actions
+- Docker
+
+---
+
+Arquitetura
+
+Desenvolver seguindo Clean Architecture.
+
+Utilizar:
+
+- SOLID
+- DDD
+- Repository Pattern
+- Service Layer
+- DTOs
+- Middleware
+- Guards
+- Interceptors
+- Logger
+- Versionamento da API
+- Testes automatizados
+
+---
+
+Funcionalidades
+
+Autenticação
+
+- Cadastro
+- Login
+- Recuperação de senha
+- MFA
+- Perfil
+
+---
+
+Pesquisa de Passagens
+
+Permitir pesquisar:
+
+- Ida
+- Ida e volta
+- Multidestinos
+
+Filtros:
+
+- Companhia aérea
+- Horário
+- Número de escalas
+- Duração
+- Bagagem
+- Classe
+- Aeroporto
+
+Ordenações:
+
+- Mais barato
+- Mais rápido
+- Melhor custo-benefício
+
+---
+
+Comparador Inteligente
+
+Comparar:
+
+- Preço em dinheiro
+- Preço utilizando milhas
+- Valor da milha
+- Taxas
+- Economia obtida
+
+---
+
+Sistema de Alertas
+
+Usuário poderá criar alertas por:
+
+- Cidade
+- Aeroporto
+- Companhia
+- Faixa de preço
+- Programa de milhas
+
+Enviar notificações por:
+
+- E-mail
+- Push
+- WhatsApp (arquitetura preparada)
+
+---
+
+IA
+
+Criar um assistente inteligente capaz de:
+
+- Recomendar destinos
+- Prever tendência de preços
+- Indicar melhor data para compra
+- Calcular economia usando milhas
+- Sugerir aeroportos alternativos
+- Planejar viagens completas
+
+---
+
+Dashboard
+
+Mostrar:
+
+- Economia acumulada
+- Alertas ativos
+- Histórico de pesquisas
+- Viagens favoritas
+- Programas de milhas
+
+---
+
+Administração
+
+Criar painel administrativo com:
+
+- Gestão de usuários
+- Assinaturas
+- Financeiro
+- Analytics
+- Logs
+- Auditoria
+- Configurações
+
+---
+
+Banco de Dados
+
+Projetar banco normalizado contendo entidades como:
+
+- Users
+- Roles
+- Permissions
+- Airports
+- Airlines
+- Flights
+- FlightPrices
+- FlightHistory
+- Alerts
+- Notifications
+- Trips
+- Hotels
+- Cars
+- LoyaltyPrograms
+- MilesAccounts
+- SearchHistory
+- Favorites
+- Payments
+- Subscriptions
+- Coupons
+- AuditLogs
+
+Criar:
+
+- Índices
+- Constraints
+- Foreign Keys
+- Triggers
+- Views
+
+---
+
+Interface
+
+Criar design moderno inspirado em grandes plataformas de viagens, com:
+
+- Layout responsivo
+- Dark Mode
+- Light Mode
+- Componentes reutilizáveis
+- Alta acessibilidade
+- Excelente experiência do usuário
+
+---
+
+Segurança
+
+Implementar:
+
+- LGPD
+- Rate Limiting
+- Criptografia
+- Proteção CSRF
+- Proteção XSS
+- Proteção SQL Injection
+- Headers de segurança
+- Logs de auditoria
+
+---
+
+Qualidade
+
+Todo código deverá conter:
+
+- Comentários quando necessários
+- Tipagem completa
+- Testes unitários
+- Testes de integração
+- Documentação da API
+- README detalhado
+
+---
+
+Organização
+
+Criar automaticamente:
+
+- Estrutura completa de diretórios
+- Banco de dados
+- API
+- Front-end
+- Componentes
+- Hooks
+- Serviços
+- Providers
+- Contextos
+- Scripts
+- Docker
+- CI/CD
+- Documentação técnica
+
+---
+
+Entrega
+
+Não gerar código incompleto ou apenas exemplos.
+
+Desenvolva a plataforma em etapas bem definidas.
+
+Ao final de cada etapa:
+
+1. Explique o que foi implementado.
+2. Liste os arquivos criados.
+3. Aguarde autorização antes de iniciar a próxima fase.
+
+Comece pela Fase 1: planejamento técnico, arquitetura completa, estrutura do projeto, criação do banco de dados e configuração inicial do ambiente.

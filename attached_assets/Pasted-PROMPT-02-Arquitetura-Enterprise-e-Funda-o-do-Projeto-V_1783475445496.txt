@@ -1,0 +1,199 @@
+PROMPT 02 — Arquitetura Enterprise e Fundação do Projeto
+
+Você continuará o desenvolvimento da plataforma TravelMiles AI.
+
+Não reescreva código existente. Analise o projeto atual, identifique o estado da aplicação e implemente apenas o que estiver faltando.
+
+Sua prioridade é criar uma base robusta, escalável e pronta para produção.
+
+---
+
+Objetivo da Fase
+
+Construir toda a fundação da plataforma antes do desenvolvimento dos módulos de negócio.
+
+Nada de funcionalidades de pesquisa de voos ainda.
+
+Primeiro desenvolva a infraestrutura.
+
+---
+
+Arquitetura
+
+Implemente arquitetura baseada em:
+
+- Clean Architecture
+- Domain Driven Design (DDD)
+- SOLID
+- Repository Pattern
+- Service Layer
+- CQRS (quando aplicável)
+- Dependency Injection
+- Event Driven Architecture
+- Modular Monolith preparado para Microservices
+
+---
+
+Organização do Projeto
+
+Criar estrutura semelhante a:
+
+/apps
+/web
+/api
+
+/packages
+/ui
+/types
+/utils
+/config
+/sdk
+
+/infrastructure
+
+/docker
+
+/docs
+
+/scripts
+
+/tests
+
+---
+
+Configuração
+
+Configurar completamente:
+
+- TypeScript
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- Commitlint
+- EditorConfig
+- Variáveis de ambiente
+- Docker
+- Docker Compose
+- GitHub Actions
+- CI/CD
+- Logs estruturados
+
+---
+
+Banco de Dados
+
+Projetar toda modelagem inicial.
+
+Criar migrations.
+
+Criar seed.
+
+Criar índices.
+
+Criar constraints.
+
+Criar documentação ER.
+
+Preparar para milhões de registros.
+
+---
+
+Autenticação
+
+Implementar:
+
+- Login
+- Cadastro
+- OAuth
+- MFA
+- Refresh Token
+- JWT
+- RBAC
+- Permissões granulares
+
+Criar arquitetura preparada para multi-tenant.
+
+---
+
+Observabilidade
+
+Implementar:
+
+- Health Check
+- Logs
+- Error Handler Global
+- Monitoramento
+- Auditoria
+- Métricas
+
+---
+
+Segurança
+
+Adicionar:
+
+- Rate Limiting
+- Helmet
+- CORS
+- CSP
+- Sanitização
+- Proteção XSS
+- Proteção CSRF
+- SQL Injection Prevention
+
+---
+
+Documentação
+
+Gerar automaticamente:
+
+- README
+- Arquitetura
+- Estrutura de pastas
+- ADRs (Architecture Decision Records)
+- Guia de instalação
+- Guia de deploy
+- Guia de contribuição
+
+---
+
+Critérios de Qualidade
+
+Todo código deve possuir:
+
+- Tipagem completa
+- Sem warnings
+- Sem código duplicado
+- Cobertura inicial de testes
+- Comentários apenas quando agregarem valor
+- Componentes reutilizáveis
+
+---
+
+Auditoria Obrigatória
+
+Antes de finalizar:
+
+1. Faça uma auditoria completa do código.
+2. Liste problemas encontrados.
+3. Corrija automaticamente todos os problemas.
+4. Execute novamente a auditoria.
+5. Somente avance quando a qualidade for superior a 95%.
+
+---
+
+Entrega
+
+Ao concluir esta fase, apresente:
+
+- Percentual real de desenvolvimento.
+- Estrutura completa do projeto.
+- Arquivos criados.
+- Arquivos modificados.
+- Arquitetura implementada.
+- Banco de dados criado.
+- Dependências instaladas.
+- Próximos passos recomendados.
+
+Não implemente ainda os módulos de passagens, hotéis, milhas ou IA. O foco desta etapa é entregar uma fundação técnica sólida, segura e escalável para as próximas fases.
