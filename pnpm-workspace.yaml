@@ -36,6 +36,8 @@ minimumReleaseAgeExclude:
 
 packages:
   - artifacts/*
+  - apps/*
+  - packages/*
   - lib/*
   - lib/integrations/*
   - scripts
@@ -69,9 +71,11 @@ catalog:
 autoInstallPeers: false
 
 onlyBuiltDependencies:
+  - '@nestjs/core'
   - '@swc/core'
   - esbuild
   - msw
+  - sharp
   - unrs-resolver
 
 overrides:

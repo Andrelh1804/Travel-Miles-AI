@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./entities": "./src/entities/index.ts",
+    "./common": "./src/common/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "~5.9.3"
+  }
+}
